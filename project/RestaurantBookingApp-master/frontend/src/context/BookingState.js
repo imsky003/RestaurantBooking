@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BookingContext from "./BookingContext";
 
 const BookingState = (props) => {
-    const host = "http://localhost:4000";
+    const host = "http://localhost:10000";
     const notesinitial = [];
     const [notes, setNotes] = useState(notesinitial);
     // 
@@ -26,7 +26,7 @@ const BookingState = (props) => {
     
     const addbooking = async (guest) => {
         // API Call
-        const response = await fetch("http://localhost:4000/bookings", {
+        const response = await fetch(`${host}/bookings/`, {
             // eslint-disable-next-line
             method: "POST",
             headers: {

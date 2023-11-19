@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react'
 import BookingContext from '../../context/BookingContext'
 function Menu() {
   const context = useContext(BookingContext);
-  const { getbooking} = context;
- 
+  const { notes } = context;
+  
   return (
     <div>
 <div className="row mt-4">
@@ -12,27 +12,22 @@ function Menu() {
                             <thead>
                                 <tr>
                                     <th>Sr.no</th>
-                                    <th>Heading</th>
-                                    <th>Content</th>
-                                    <th>Author</th>
-                                    <th>PublishDate</th>
+                                    <th>Guest</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                {getbooking.map((note, i) => (
+                           
+                                {notes.map((note, i) => (
                                     <tr key={i}>
                                         <td >{i}</td>
-                                        <td >{note.date}</td>
-                                        <td >{note.time}</td>
+                                       
                                         <td >{note.guest}</td>
-                                        <td >{note.amount}</td>
-                                        <td >{note.table}</td>
-                                        <td >{note.message}</td>
+                                        <td></td>
+                                        <td></td>
                                         
                                     </tr>))}
-                            </tbody>
+                            
                         </table>
                     </div>
                 </div>
