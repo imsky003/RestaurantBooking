@@ -1,11 +1,13 @@
 {
   "name": "comp229",
   "dependencies": {
-    "express": "^4.18.2"
+    "connect": "^3.7.0",
+    "express": "^4.18.2",
+    "init": "^0.1.2",
+    "nodemon": "^3.0.1"
   },
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
