@@ -18,9 +18,9 @@ const BookingState = (props) => {
                 
             }
         });
-        const json = await response.json();
-        console.log(json);
-        setNotes(json);
+        const note = await response.json();
+        console.log(note);
+        setNotes(note);
     };
     // Add note
     

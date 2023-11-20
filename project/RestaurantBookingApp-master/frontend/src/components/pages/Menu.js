@@ -3,7 +3,8 @@ import BookingContext from '../../context/BookingContext'
 function Menu() {
   const context = useContext(BookingContext);
   const { notes } = context;
-  
+  const record = notes;
+  console.log(record);
   return (
     <div>
 <div className="row mt-4">
