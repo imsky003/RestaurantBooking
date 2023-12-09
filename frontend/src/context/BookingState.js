@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BookingContext from "./BookingContext";
 
 const BookingState = (props) => {
-    const host = "http://localhost:10000";
+    const host = "http://localhost:3005";
     const notesinitial = [];
     const [notes, setNotes] = useState(notesinitial);
     // 
@@ -10,7 +10,7 @@ const BookingState = (props) => {
 
     const getBooking = async () => {
         // API Call
-        const response = await fetch(`${host}/bookings/`, {
+        const response = await fetch(`${host}/reserve/`, {
             method: "GET",
 
             headers: {
@@ -43,7 +43,7 @@ const BookingState = (props) => {
     // delete note
     const deletebooking = async (id) => {
         // API Call
-        const response = await fetch(`${host}/bookings/${id}`, {
+        const response = await fetch(`${host}/reserve/${id}`, {
             method: "DELETE",
 
             headers: {
@@ -61,10 +61,10 @@ const BookingState = (props) => {
         setNotes(newNote);
     };
     // edit note
-    const editbooking = async (id,guest) => {
+    const editbooking = async (id,name,time, location,size,phone,email,table) => {
         // Api call
         // console.log(title);
-        const response = await fetch(`${host}/bookings/${id}`, {
+        const response = await fetch(`${host}/reserve/${id}`, {
             method: "PUT",
 
             headers: {
@@ -72,23 +72,13 @@ const BookingState = (props) => {
                 
             },
 
-            body: JSON.stringify({ guest }),
+            // body: JSON.stringify({ email,table,phone }),
+            body: JSON.stringify({ name,time, location,size,phone,email,table }),
         });
         const json = response.json();
         console.log(json);
 
-        // let newNotes = JSON.parse(JSON.stringify(notes));
-        // logic to edit in client
-        // for (let index = 0; index < newNotes.length; index++) {
-        //     const element = newNotes[index];
-        //     if (element._id === id) {
-        //         newNotes[index].heading = heading;
-        //         newNotes[index].content = content;
-        //         newNotes[index].author = author;
-        //         break;
-        //     }
-        // }
-        // setNotes(newNotes);
+       
     };
     return (
         <BookingContext.Provider
